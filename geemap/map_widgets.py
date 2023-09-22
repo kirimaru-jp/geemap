@@ -575,11 +575,11 @@ class AbstractDrawControl(object):
             self.collection, {"color": "blue"}, "Drawn Features", False, 0.5
         )
         # if self.host_map:
-        #     layer_index = self.host_map.find_layer_index("Drawn Features")
-        #     if layer_index == -1:
-        #         self.host_map.add_layer(layer)
-        #     else:
-        #         self.host_map.substitute(self.host_map.layers[layer_index], layer)
+            # layer_index = self.host_map.find_layer_index("Drawn Features")
+            # if layer_index == -1:
+                # self.host_map.add_layer(layer)
+            # else:
+                # self.host_map.substitute(self.host_map.layers[layer_index], layer)
         self.layer = layer
 
     def _handle_geometry_created(self, geo_json):
@@ -685,15 +685,16 @@ class LayerManager(ipywidgets.VBox):
         toggle_all_layout = ipywidgets.Layout(
             height="18px", width="30ex", padding="0px 8px 25px 8px"
         )
-        toggle_all_checkbox = ipywidgets.Checkbox(
-            value=False,
-            description="All layers on/off",
-            indent=False,
-            layout=toggle_all_layout,
-        )
-        toggle_all_checkbox.observe(self._on_all_layers_visibility_toggled, "value")
+        # toggle_all_checkbox = ipywidgets.Checkbox(
+            # value=False,
+            # description="All layers on/off",
+            # indent=False,
+            # layout=toggle_all_layout,
+        # )
+        # toggle_all_checkbox.observe(self._on_all_layers_visibility_toggled, "value")
 
-        layer_rows = [toggle_all_checkbox]
+        # layer_rows = [toggle_all_checkbox]
+        layer_rows = []
         for layer in self._host_map.layers[1:]:  # Skip the basemap.
             layer_rows.append(self._render_layer_row(layer))
         self._toolbar_footer.children = layer_rows
