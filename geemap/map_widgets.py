@@ -574,12 +574,12 @@ class AbstractDrawControl(object):
         layer = EELeafletTileLayer(
             self.collection, {"color": "blue"}, "Drawn Features", False, 0.5
         )
-        if self.host_map:
-            layer_index = self.host_map.find_layer_index("Drawn Features")
-            if layer_index == -1:
-                self.host_map.add_layer(layer)
-            else:
-                self.host_map.substitute(self.host_map.layers[layer_index], layer)
+        # if self.host_map:
+        #     layer_index = self.host_map.find_layer_index("Drawn Features")
+        #     if layer_index == -1:
+        #         self.host_map.add_layer(layer)
+        #     else:
+        #         self.host_map.substitute(self.host_map.layers[layer_index], layer)
         self.layer = layer
 
     def _handle_geometry_created(self, geo_json):
