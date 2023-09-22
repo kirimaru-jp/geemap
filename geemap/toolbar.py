@@ -4642,14 +4642,14 @@ def plotly_toolbar(
         if change["new"]:
             layer_names = list(m.get_layers().keys())
             layers_hbox = []
-            all_layers_chk = widgets.Checkbox(
-                value=True,
-                description="All layers on/off",
-                indent=False,
-                layout=widgets.Layout(height="18px", padding="0px 8px 25px 8px"),
-            )
-            all_layers_chk.layout.width = "30ex"
-            layers_hbox.append(all_layers_chk)
+            # all_layers_chk = widgets.Checkbox(
+                # value=True,
+                # description="All layers on/off",
+                # indent=False,
+                # layout=widgets.Layout(height="18px", padding="0px 8px 25px 8px"),
+            # )
+            # all_layers_chk.layout.width = "30ex"
+            # layers_hbox.append(all_layers_chk)
 
             layer_chk_dict = {}
 
@@ -4727,7 +4727,7 @@ def plotly_toolbar(
                         m.set_layer_visibility(name, False)
                         layer_chk_dict[name].value = False
 
-            all_layers_chk.observe(all_layers_chk_changed, "value")
+            # all_layers_chk.observe(all_layers_chk_changed, "value")
 
             toolbar_footer.children = layers_hbox
             toolbar_button.value = False
